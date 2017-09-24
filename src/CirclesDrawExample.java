@@ -47,7 +47,6 @@ class CircleDrawComponent extends JComponent {
         for(Line2D l : lines) g2.draw(l);
     }
 
-    //
     // Method searching ellipse about same position as point. If find it return this element, else return null.
     public Ellipse2D findCircle(Point2D point){
         for(Ellipse2D c : circles) if(c.contains(point)) return c;
@@ -90,7 +89,7 @@ class CircleDrawComponent extends JComponent {
             }
         }
 
-        // After clicked given mouse position and set new ellipse on current element if is null. If not null doing noting
+        // After clicked given mouse position and set new ellipse on current element if is null, but is not, do nothing.
         @Override
         public void mousePressed(MouseEvent e) {
             current = findCircle(e.getPoint());
@@ -98,13 +97,14 @@ class CircleDrawComponent extends JComponent {
         }
     }
 
+
     private class MouseMotionHandler implements MouseMotionListener{
 
         @Override
         public void mouseDragged(MouseEvent e) {
 
         }
-
+        // Helper class method constantly checking mouse position, and correct P2 lines.
         @Override
         public void mouseMoved(MouseEvent e) {
             System.out.println(e.getX() + " | " + e.getY());
