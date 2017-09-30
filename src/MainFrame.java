@@ -31,22 +31,16 @@ public class MainFrame extends JFrame {
     }
 
     // Private class with buttons to example practice projects.
-    private class PracticeButtonComponent extends JComponent {
+    private class PracticeButtonComponent extends JPanel {
 
         public PracticeButtonComponent() {
             setLayout(new FlowLayout());
 
-            makeButton("Color Button Example", e -> {
-                new ColorExample().setVisible(true);
-            });
+            makeButton("Color Button Example", e -> new ColorExample().setVisible(true));
+            makeButton("Mouse Action Example", e -> new CirclesDrawExample().setVisible(true));
+            makeButton("Thread with ball Example", e -> new BounceExample().setVisible(true));
+            makeButton("Moving Rectangle", e -> new MovingRectangle().setVisible(true));
 
-            makeButton("Mouse Action Example", e -> {
-                new CirclesDrawExample().setVisible(true);
-            });
-
-            makeButton("Thread with ball Example", e -> {
-                new BounceExample().setVisible(true);
-            });
         }
 
         private void makeButton(String name, ActionListener listener){

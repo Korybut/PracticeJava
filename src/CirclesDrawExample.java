@@ -10,8 +10,18 @@ import java.util.ArrayList;
 
 public class CirclesDrawExample extends JFrame {
 
+    private CircleDrawComponent circleDrawComponent;
+    private JPanel buttonPanel;
+    private JButton button;
+
     public CirclesDrawExample() {
-        add(new CircleDrawComponent());
+        circleDrawComponent = new CircleDrawComponent();
+        add(circleDrawComponent, BorderLayout.CENTER);
+        buttonPanel = new JPanel();
+        button = new JButton("Close");
+        button.addActionListener(e -> setVisible(false));
+        buttonPanel.add(button);
+        add(buttonPanel, BorderLayout.SOUTH);
         pack();
         setLocation((int)MainFrame.point.getX()-this.getWidth()/2,(int)MainFrame.point.getY()-this.getHeight()/2);
     }
