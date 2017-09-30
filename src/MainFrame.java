@@ -43,6 +43,10 @@ public class MainFrame extends JFrame {
             makeButton("Mouse Action Example", e -> {
                 new CirclesDrawExample().setVisible(true);
             });
+
+            makeButton("Thread with ball Example", e -> {
+                new BounceExample().setVisible(true);
+            });
         }
 
         private void makeButton(String name, ActionListener listener){
